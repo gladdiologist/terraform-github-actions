@@ -102,6 +102,7 @@ function main {
   source ${scriptDir}/terraform_plan.sh
   source ${scriptDir}/terraform_apply.sh
   source ${scriptDir}/terraform_output.sh
+  source ${scriptDir}/terraform_destroy.sh
 
   parseInputs
   configureCLICredentials
@@ -127,6 +128,10 @@ function main {
     apply)
       installTerraform
       terraformApply ${*}
+      ;;
+    destroy)
+      installTerraform
+      terraformDestroy ${*}
       ;;
     output)
       installTerraform
